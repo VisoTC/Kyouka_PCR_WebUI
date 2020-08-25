@@ -43,7 +43,7 @@ import { Component, Vue } from "vue-property-decorator";
         } else {
           const t = new Date();
           (this as DataTable).Pdate = `${t.getFullYear()}-${
-            t.getMonth() < 10 ? "0" + t.getMonth() : t.getMonth()
+            t.getMonth() + 1 < 10 ? "0" + (t.getMonth() + 1) : t.getMonth()
           }-${t.getDate()}`;
         }
       }
