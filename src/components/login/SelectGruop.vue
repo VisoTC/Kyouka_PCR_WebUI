@@ -57,8 +57,8 @@ import { Component, Vue } from "vue-property-decorator";
 })
 export default class Home extends Vue {
   selectGruop: { name: string; gid: number } | null = null;
-  period = "Leo";
-  periods = ["Leo"];
+  period = "202008";
+  periods = ["202008"];
   periodErrMsg = ''
   open!: boolean;
   get Popen() {
