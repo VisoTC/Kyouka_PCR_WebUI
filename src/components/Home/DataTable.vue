@@ -96,6 +96,10 @@ export default class DataTable extends Vue {
   }
   headers = [
     {
+      text: "时间戳",
+      value: "timestamp",
+    },
+    {
       text: "报告时间",
       value: "time",
     },
@@ -112,6 +116,7 @@ export default class DataTable extends Vue {
       return {
         id: item.id,
         time: `${t.getFullYear()}年${t.getMonth()}月${t.getDate()}日 ${t.getHours()}:${t.getMinutes()}:${t.getSeconds()}`,
+        timestamp: item.time,
         member: item.member,
         nickName: item.nickName,
         stage: item.stage,
@@ -138,7 +143,7 @@ export default class DataTable extends Vue {
         // eslint-disable-next-line
         if ((i as any)[h.value] != undefined) {
           // eslint-disable-next-line
-          csv += (i as any)[h.value];
+          csv += '"' + (i as any)[h.value] + '"';
         }
         csv += ",";
       }
@@ -166,7 +171,7 @@ export default class DataTable extends Vue {
     document.body.appendChild(link);
     link.click();
     URL.revokeObjectURL(blobLink);
-    document.removeChild(link);
+    document.body.removeChild(link);
   }
 }
 export interface Table {
